@@ -13,6 +13,7 @@ router.get('/whoami', (req, res) => {
   osInfo = osInfo.split(/[\(\)]/)[1] // search for words in parentheses
 
   var ip = req.ip
+  // var ip = req.headers['']
   // we only need the first part of the language, before the comma
   var language = req.headers['accept-language'].split(',')[0].trim()
 
