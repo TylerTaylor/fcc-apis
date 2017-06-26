@@ -97,6 +97,10 @@ var apiUrl = baseUrl + "cx=" + cx + "&key=" + key + "&q="
 
 const request = require('request')
 
+router.get('/imagesearch', (req, res) => {
+  res.render('imagesearch', { title: 'Image Search Abstraction Layer'})
+})
+
 router.get('/imagesearch/latest', (req, res) => {
   RecentSearch.find({}, {_id: 0, __v: 0}, (err, data) => {
     res.json(data)
