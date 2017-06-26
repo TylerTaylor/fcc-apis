@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var multer = require('multer');
+var upload = multer({dest: 'uploads/'})
 
 /* GET home page. */
 router.get('/', (req, res) => {
@@ -61,6 +63,16 @@ router.get('/timestamp/:time', (req, res) => {
       res.json({ unix: null, natural: null })
     }
   }
+})
+
+/* GET fileMetadata index */
+router.get('/fileMetadata', (req, res) => {
+  res.render('fileMetadata', { title: "Ty's FCC APIs" });
+});
+
+/* GET fileMetadata API */
+router.post('/fileMetadata/upload', upload.single('file'), (req, res) => {
+  return res.json(req.file)
 })
 
 module.exports = router;

@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title}
+  
+  h3 User Stories
+  p - I can submit a FormData object that includes a file upload
+  p - When I submit something, I will receive the file size in bytes with the JSON response
+  br
+  form(action='/fileMetadata/upload', method='post', enctype='multipart/form-data')
+    label(for='file') Please Select A File
+    br
+    input#file(type='file', name='file')
+    br
+    input(type='submit')
